@@ -5,3 +5,42 @@
 		<li *ngFor="let tarea of tareas">{{tarea.titulo}} ({{tarea.minutos}} minutos)</li>
 	</ol>
 </div>
+
+<div>
+	<h1>Tarea #1</h1>
+	<table>
+		<tr>
+			<td>Id</td>
+			<td>Titulo</td>
+			<td>minutos</td>
+		</tr>
+		<tr *ngFor="let tarea of tareas">
+			<td>{{tarea.id}}</td>
+			<td>{{tarea.titulo}}</td>
+			<td>{{tarea.minutos}}</td>
+			<td><input type="checkbox"></td>
+			<button (click)='delteTarea(tarea.id)'> Borrar</button>
+		</tr>
+	</table>
+</div>
+<div>
+
+	<body>
+
+		<form #fromTarea="ngForm" (ngSubmit)='addTareas()'>
+			<input type="text" name="id" #id="ngModel" [(ngModel)]="modelTarea.id" />
+			<br />
+			<input type="text" name="titulo" #titulo="ngModel" [(ngModel)]="modelTarea.titulo" />
+			<br />
+			<input type="text" name="minutos" #minutos="ngModel" [(ngModel)]="modelTarea.minutos" />
+			<br />
+
+			<button type="submit">save</button>
+
+		</form>
+
+	</body>
+</div>
+<div>
+	<button (click)="orderbyMinits()">borrar</button>
+</div>
